@@ -1,0 +1,46 @@
+erDiagram
+    bank_customer_interactions {
+        INT customer_id PK
+        INT job_id FK
+        INT marital_id FK
+        INT education_id FK
+        INT finance_id FK
+        STRING contact
+        INT age
+        INT balance
+        INT day
+        STRING month
+        INT duration
+        INT campaign
+        INT pdays
+        INT previous
+        STRING poutcome
+        STRING deposit
+    }
+
+    dim_job {
+        INT job_id PK
+        STRING job
+    }
+
+    dim_marital {
+        INT marital_id PK
+        STRING marital
+    }
+
+    dim_education {
+        INT education_id PK
+        STRING education
+    }
+
+    dim_finance {
+        INT finance_id PK
+        STRING default
+        STRING housing
+        STRING loan
+    }
+
+    bank_customer_interactions ||--|| dim_job : aligned_by_row
+    bank_customer_interactions ||--|| dim_marital : aligned_by_row
+    bank_customer_interactions ||--|| dim_education : aligned_by_row
+    bank_customer_interactions ||--|| dim_finance : aligned_by_row
